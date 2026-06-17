@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,7 +42,16 @@ INSTALLED_APPS = [
     'dashboard',
     'diagnosis',
     'patients', 
+    'tailwind',
+    'theme',
+    "django_browser_reload",
+
 ]
+
+
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = ['127.0.0.1']
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +61,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+
 ]
 
 ROOT_URLCONF = 'ai_medical_assistant.urls'
@@ -119,3 +132,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+

@@ -25,4 +25,7 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('diagnosis/', include('diagnosis.urls')),
     path('patients/', include('patients.urls')),
+
+    
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
